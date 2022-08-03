@@ -1,0 +1,32 @@
+plugins {
+    id 'org.springframework.boot' version "$springBotVersion"
+    id 'io.spring.dependency-management' version "$dependencyManagement"
+    id 'java'
+}
+
+group "com.example"
+version "$version"
+
+sourceCompatibility = "11"
+targetCompatibility = "11"
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation project(":product-one")
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

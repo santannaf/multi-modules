@@ -1,0 +1,5 @@
+rootProject.name = 'demo-multi-projects'
+include 'app'
+include 'product-one'
+include 'commons'
+
